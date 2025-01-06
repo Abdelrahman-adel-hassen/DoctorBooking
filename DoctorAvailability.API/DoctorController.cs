@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DoctorAvailability.API
 {
+
     [ApiController]
     [Route("[controller]")]
     public class DoctorController : ControllerBase
@@ -15,8 +16,8 @@ namespace DoctorAvailability.API
         { 
             return doctorService.GetDoctorSlots(id);
         }
-        [HttpPost]
 
+        [HttpPost]
         public bool AddDoctorSlot(List<Slot> slots)
         {
             return doctorService.AddDoctorSlot(slots);

@@ -1,10 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorBooking.Bootstraper", "DoctorBooking\DoctorBooking.Bootstraper.csproj", "{98AA0305-8800-47A9-9CEB-96649065BA93}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{5137AD13-EA3A-4449-A6D4-01A2DC340499}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{13DB5B6F-6C8F-43CE-9041-9E477E3D373D}"
@@ -17,16 +15,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorAvailability.BLL", "D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorAvailability.DAL", "DoctorAvailability.DAL\DoctorAvailability.DAL.csproj", "{7902E569-A4F9-4179-BC10-D017D7640042}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorBooking.Bootstrapper", "DoctorBooking.Bootstrapper\DoctorBooking.Bootstrapper.csproj", "{A4CB1EE8-2B6B-4792-B6A0-DBB69ECB9F1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{98AA0305-8800-47A9-9CEB-96649065BA93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{98AA0305-8800-47A9-9CEB-96649065BA93}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{98AA0305-8800-47A9-9CEB-96649065BA93}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{98AA0305-8800-47A9-9CEB-96649065BA93}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0478ACB7-CC03-4781-BD24-F6C4068812B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0478ACB7-CC03-4781-BD24-F6C4068812B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0478ACB7-CC03-4781-BD24-F6C4068812B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{7902E569-A4F9-4179-BC10-D017D7640042}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7902E569-A4F9-4179-BC10-D017D7640042}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7902E569-A4F9-4179-BC10-D017D7640042}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4CB1EE8-2B6B-4792-B6A0-DBB69ECB9F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4CB1EE8-2B6B-4792-B6A0-DBB69ECB9F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4CB1EE8-2B6B-4792-B6A0-DBB69ECB9F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4CB1EE8-2B6B-4792-B6A0-DBB69ECB9F1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
