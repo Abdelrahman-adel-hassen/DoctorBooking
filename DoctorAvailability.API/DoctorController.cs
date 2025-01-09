@@ -4,23 +4,26 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DoctorAvailability.API
 {
-
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("[controller]")]
-    public class DoctorController : ControllerBase
+    public class DoctorController(DoctorService doctorservice) : ControllerBase
     {
-        DoctorService doctorService = new();
-        [HttpGet]
+        private readonly DoctorService _doctorService = doctorservice;
 
-        public List<Slot> GetDoctorSlots(Guid id)
+        [HttpGet("")]
+        public IActionResult GetAllSlots([FromRoute] Guid doctorId)
         { 
-            return doctorService.GetDoctorSlots(id);
+            return Ok(_doctorService.GetDoctorSlots(doctorId));
         }
 
-        [HttpPost]
-        public bool AddDoctorSlot(List<Slot> slots)
+        [HttpPost("")]
+        public IActionResult NewDoctorSlot([FromBody] IEnumerable<Slot> slots)
         {
-            return doctorService.AddDoctorSlot(slots);
+            var result = _doctorService.AddDoctorSlot(slots);
+            if (!result)
+                return BadRequest();
+
+            return Ok();
         }
     }
 }

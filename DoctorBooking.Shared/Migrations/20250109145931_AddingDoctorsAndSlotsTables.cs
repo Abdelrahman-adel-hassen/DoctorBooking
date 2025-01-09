@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace DoctorBooking.Bootstrapper.Migrations
+namespace DoctorBooking.Shared.Migrations
 {
     /// <inheritdoc />
-    public partial class addingDoctorAndSlotTables : Migration
+    public partial class AddingDoctorsAndSlotsTables : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

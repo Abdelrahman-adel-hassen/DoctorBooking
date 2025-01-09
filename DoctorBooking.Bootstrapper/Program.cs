@@ -1,5 +1,7 @@
 using DoctorAvailability.API;
+using DoctorAvailability.BLL.Services;
 using DoctorAvailability.DAL;
+using DoctorAvailability.DAL.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +20,9 @@ builder.Services.AddControllers().AddApplicationPart(typeof(DoctorController).As
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<DoctorService>();
+builder.Services.AddScoped<DoctorRepo>();
 
 var app = builder.Build();
 

@@ -1,19 +1,38 @@
 ﻿using DoctorAvailability.DAL.Models;
+using DoctorAvailability.DAL.Repositories;
 
 namespace DoctorAvailability.BLL.Services
 {
-    public class DoctorService
+    public class DoctorService(DoctorRepo doctorRepo)
     {
-        public DoctorService() { }
+        private readonly DoctorRepo _doctorRepo = doctorRepo;
 
-        public List<Slot> GetDoctorSlots(Guid id)
+        public IEnumerable<Slot> GetDoctorSlots(Guid id)
         {
-            // This is where we would call the DAL to get the slots for a doctor
-            return new List<Slot>();
+            if(id == Guid.Empty)
+            {
+                throw new ArgumentException("Doctor ID cannot be empty");
+            }
+
+            var doctorSlots = _doctorRepo.GetDoctorSlots(id);
+            if(doctorSlots == null)
+            {
+                throw new ArgumentException("DoctorSlots are Empty");
+            }
+            return doctorSlots;
         }
-        public bool AddDoctorSlot(List<Slot>slots)
+        public bool AddDoctorSlot(IEnumerable<Slot>slots)
         {
-            return true;
+            if (slots == null)
+            {
+                throw new ArgumentException("Slots cannot be empty");
+            }
+            var slotAdded = _doctorRepo.AddDoctorSlot(slots);
+            if (!slotAdded)
+            {
+                throw new ArgumentException("Slots cannot be added");
+            }
+            return slotAdded;
         }
     }
 }
