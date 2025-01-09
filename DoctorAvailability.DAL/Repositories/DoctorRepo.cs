@@ -1,4 +1,5 @@
-﻿using DoctorAvailability.DAL.Models;
+﻿using DoctorBooking.DAL;
+using DoctorBooking.DAL.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Threading;
 

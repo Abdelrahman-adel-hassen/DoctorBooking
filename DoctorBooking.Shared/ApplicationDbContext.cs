@@ -1,16 +1,14 @@
-﻿using DoctorAvailability.DAL.Models;
+﻿using DoctorBooking.DAL.Models;
+using DoctorBooking.Shared.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DoctorAvailability.DAL;
+namespace DoctorBooking.DAL;
 public class ApplicationDbContext : DbContext
 {
     public DbSet<Doctor> Doctors { get; set; }
     public DbSet<Slot> Slots { get; set; }
+    public DbSet<Appointment> Appointments { get; set; }
+    public DbSet<Patient> Patients { get; set; }
 
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {

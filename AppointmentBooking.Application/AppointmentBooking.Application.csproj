@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AppointmentBooking.Domain\AppointmentBooking.Domain.csproj" />
+    <ProjectReference Include="..\DoctorBooking.Shared\DoctorBooking.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

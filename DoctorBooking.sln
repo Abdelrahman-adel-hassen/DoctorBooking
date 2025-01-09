@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{13DB5B
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorAvailability.API", "DoctorAvailability.API\DoctorAvailability.API.csproj", "{0478ACB7-CC03-4781-BD24-F6C4068812B5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DoctorAvailability", "DoctorAvailability", "{E81EADC0-7736-474D-B3E4-417A9C32B899}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DoctorAvailabilityModule", "DoctorAvailabilityModule", "{E81EADC0-7736-474D-B3E4-417A9C32B899}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorAvailability.BLL", "DoctorAvailability\DoctorAvailability.BLL.csproj", "{DE88A338-092C-44B4-9B59-6EA334118613}"
 EndProject
@@ -18,6 +18,16 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorBooking.Bootstrapper", "DoctorBooking.Bootstrapper\DoctorBooking.Bootstrapper.csproj", "{A4CB1EE8-2B6B-4792-B6A0-DBB69ECB9F1F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorBooking.Shared", "DoctorBooking.Shared\DoctorBooking.Shared.csproj", "{F025FED2-1A7E-4417-B4E1-5BCD36A87A81}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AppointmentBookingModule", "AppointmentBookingModule", "{7A8E2E60-9838-4FB5-AE78-950BAC4EF21C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentBooking.API", "AppointmentBooking.API\AppointmentBooking.API.csproj", "{515D6985-ED82-452E-8313-E430548FEA15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentBooking.Application", "AppointmentBooking.Application\AppointmentBooking.Application.csproj", "{268777A8-F892-4151-96A4-8DFB3FEEF452}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentBooking.Infrastructure", "AppointmentBooking.Infrastructure\AppointmentBooking.Infrastructure.csproj", "{5ABFB6A2-6C3F-4141-9DF9-008991081779}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentBooking.Domain", "AppointmentBooking.Domain\AppointmentBooking.Domain.csproj", "{EBC69FB7-F142-4869-845A-55D9625AA4C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +55,22 @@ Global
 		{F025FED2-1A7E-4417-B4E1-5BCD36A87A81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F025FED2-1A7E-4417-B4E1-5BCD36A87A81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F025FED2-1A7E-4417-B4E1-5BCD36A87A81}.Release|Any CPU.Build.0 = Release|Any CPU
+		{515D6985-ED82-452E-8313-E430548FEA15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{515D6985-ED82-452E-8313-E430548FEA15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{515D6985-ED82-452E-8313-E430548FEA15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{515D6985-ED82-452E-8313-E430548FEA15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{268777A8-F892-4151-96A4-8DFB3FEEF452}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{268777A8-F892-4151-96A4-8DFB3FEEF452}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{268777A8-F892-4151-96A4-8DFB3FEEF452}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{268777A8-F892-4151-96A4-8DFB3FEEF452}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ABFB6A2-6C3F-4141-9DF9-008991081779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ABFB6A2-6C3F-4141-9DF9-008991081779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ABFB6A2-6C3F-4141-9DF9-008991081779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ABFB6A2-6C3F-4141-9DF9-008991081779}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBC69FB7-F142-4869-845A-55D9625AA4C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBC69FB7-F142-4869-845A-55D9625AA4C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBC69FB7-F142-4869-845A-55D9625AA4C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBC69FB7-F142-4869-845A-55D9625AA4C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,5 +81,10 @@ Global
 		{DE88A338-092C-44B4-9B59-6EA334118613} = {E81EADC0-7736-474D-B3E4-417A9C32B899}
 		{7902E569-A4F9-4179-BC10-D017D7640042} = {E81EADC0-7736-474D-B3E4-417A9C32B899}
 		{F025FED2-1A7E-4417-B4E1-5BCD36A87A81} = {13DB5B6F-6C8F-43CE-9041-9E477E3D373D}
+		{7A8E2E60-9838-4FB5-AE78-950BAC4EF21C} = {5137AD13-EA3A-4449-A6D4-01A2DC340499}
+		{515D6985-ED82-452E-8313-E430548FEA15} = {7A8E2E60-9838-4FB5-AE78-950BAC4EF21C}
+		{268777A8-F892-4151-96A4-8DFB3FEEF452} = {7A8E2E60-9838-4FB5-AE78-950BAC4EF21C}
+		{5ABFB6A2-6C3F-4141-9DF9-008991081779} = {7A8E2E60-9838-4FB5-AE78-950BAC4EF21C}
+		{EBC69FB7-F142-4869-845A-55D9625AA4C4} = {7A8E2E60-9838-4FB5-AE78-950BAC4EF21C}
 	EndGlobalSection
 EndGlobal

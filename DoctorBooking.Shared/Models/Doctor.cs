@@ -1,4 +1,4 @@
-﻿namespace DoctorAvailability.DAL.Models
+﻿namespace DoctorBooking.DAL.Models
 {
     public class Doctor
     {

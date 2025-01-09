@@ -1,5 +1,5 @@
 ﻿using DoctorAvailability.BLL.Services;
-using DoctorAvailability.DAL.Models;
+using DoctorBooking.DAL.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DoctorAvailability.API

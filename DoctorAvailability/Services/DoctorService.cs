@@ -1,4 +1,4 @@
-﻿using DoctorAvailability.DAL.Models;
+﻿using DoctorBooking.DAL.Models;
 using DoctorAvailability.DAL.Repositories;
 
 namespace DoctorAvailability.BLL.Services
@@ -9,21 +9,20 @@ namespace DoctorAvailability.BLL.Services
 
         public IEnumerable<Slot> GetDoctorSlots(Guid id)
         {
-            if(id == Guid.Empty)
+            if (id == Guid.Empty)
             {
                 throw new ArgumentException("Doctor ID cannot be empty");
             }
-
             var doctorSlots = _doctorRepo.GetDoctorSlots(id);
-            if(doctorSlots == null)
+            if (doctorSlots == null)
             {
                 throw new ArgumentException("DoctorSlots are Empty");
             }
             return doctorSlots;
         }
-        public bool AddDoctorSlot(IEnumerable<Slot>slots)
+        public bool AddDoctorSlot(IEnumerable<Slot> slots)
         {
-            if (slots == null)
+            if (slots is null || !slots.Any())
             {
                 throw new ArgumentException("Slots cannot be empty");
             }

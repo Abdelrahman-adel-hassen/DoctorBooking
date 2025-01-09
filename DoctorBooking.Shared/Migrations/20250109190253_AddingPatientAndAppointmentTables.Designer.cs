@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DoctorBooking.Shared.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250109145931_AddingDoctorsAndSlotsTables")]
-    partial class AddingDoctorsAndSlotsTables
+    [Migration("20250109190253_AddingPatientAndAppointmentTables")]
+    partial class AddingPatientAndAppointmentTables
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -65,6 +65,49 @@ namespace DoctorBooking.Shared.Migrations
                     b.ToTable("Slots");
                 });
 
+            modelBuilder.Entity("DoctorBooking.Shared.Models.Appointment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("PatientId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("PatientName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("ReservedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("SlotId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PatientId");
+
+                    b.HasIndex("SlotId");
+
+                    b.ToTable("Appointments");
+                });
+
+            modelBuilder.Entity("DoctorBooking.Shared.Models.Patient", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Patients");
+                });
+
             modelBuilder.Entity("DoctorAvailability.DAL.Models.Slot", b =>
                 {
                     b.HasOne("DoctorAvailability.DAL.Models.Doctor", null)
@@ -74,9 +117,33 @@ namespace DoctorBooking.Shared.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("DoctorBooking.Shared.Models.Appointment", b =>
+                {
+                    b.HasOne("DoctorBooking.Shared.Models.Patient", "Patient")
+                        .WithMany("Appointments")
+                        .HasForeignKey("PatientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("DoctorAvailability.DAL.Models.Slot", "Slot")
+                        .WithMany()
+                        .HasForeignKey("SlotId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Patient");
+
+                    b.Navigation("Slot");
+                });
+
             modelBuilder.Entity("DoctorAvailability.DAL.Models.Doctor", b =>
                 {
                     b.Navigation("Slots");
+                });
+
+            modelBuilder.Entity("DoctorBooking.Shared.Models.Patient", b =>
+                {
+                    b.Navigation("Appointments");
                 });
 #pragma warning restore 612, 618
         }
