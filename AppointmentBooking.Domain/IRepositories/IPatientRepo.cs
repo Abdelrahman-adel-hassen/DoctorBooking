@@ -1,12 +1,9 @@
-﻿using DoctorBooking.DAL.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Appointment.Shared.DTO;
+using DoctorBooking.Shared.Models;
 
 namespace AppointmentBooking.Domain.IRepositories;
 public interface IPatientRepo
 {
     IEnumerable<Slot> GetAvailableSlots();
+    AppointmentDetails BookAppointment(Guid patientId, Guid doctorId, Guid slotId);
 }

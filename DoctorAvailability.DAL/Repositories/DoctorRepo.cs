@@ -1,16 +1,16 @@
-﻿using DoctorBooking.DAL;
-using DoctorBooking.DAL.Models;
+﻿using DoctorBooking.Shared;
+using DoctorBooking.Shared.Models;
 using Microsoft.EntityFrameworkCore;
-using System.Threading;
 
 namespace DoctorAvailability.DAL.Repositories
 {
-    public class DoctorRepo(ApplicationDbContext context)    {
+    public class DoctorRepo(ApplicationDbContext context) : IDoctorRepo
+    {
         private readonly ApplicationDbContext _context = context;
 
         public IEnumerable<Slot> GetDoctorSlots(Guid id)
         {
-            var DoctorExists =  _context.Doctors.Any(x => x.Id == id);
+            var DoctorExists = _context.Doctors.Any(x => x.Id == id);
 
             if (!DoctorExists)
                 return null!;

@@ -1,6 +1,4 @@
-﻿using DoctorBooking.DAL.Models;
-
-namespace DoctorBooking.Shared.Models;
+﻿namespace DoctorBooking.Shared.Models;
 public class Appointment
 {
     public Guid Id { get; set; }

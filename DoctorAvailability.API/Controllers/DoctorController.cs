@@ -1,8 +1,8 @@
 ﻿using DoctorAvailability.BLL.Services;
-using DoctorBooking.DAL.Models;
+using DoctorBooking.Shared.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DoctorAvailability.API
+namespace DoctorAvailability.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -10,13 +10,13 @@ namespace DoctorAvailability.API
     {
         private readonly DoctorService _doctorService = doctorservice;
 
-        [HttpGet("")]
-        public IActionResult GetAllSlots([FromRoute] Guid doctorId)
-        { 
+        [HttpGet("GetAllSlots")]
+        public IActionResult GetAllSlots(Guid doctorId)
+        {
             return Ok(_doctorService.GetDoctorSlots(doctorId));
         }
 
-        [HttpPost("")]
+        [HttpPost("NewDoctorSlot")]
         public IActionResult NewDoctorSlot([FromBody] IEnumerable<Slot> slots)
         {
             var result = _doctorService.AddDoctorSlot(slots);

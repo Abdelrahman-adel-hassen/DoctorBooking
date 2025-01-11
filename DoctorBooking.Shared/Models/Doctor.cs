@@ -1,4 +1,4 @@
-﻿namespace DoctorBooking.DAL.Models
+﻿namespace DoctorBooking.Shared.Models
 {
     public class Doctor
     {

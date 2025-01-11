@@ -15,7 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AppointmentBooking.API\AppointmentBooking.API.csproj" />
     <ProjectReference Include="..\DoctorAvailability.API\DoctorAvailability.API.csproj" />
+    <ProjectReference Include="..\DoctorBooking.API\Notification.API.csproj" />
+    <ProjectReference Include="..\Notification.Shared\Notification.Shared.csproj" />
   </ItemGroup>
 
 </Project>

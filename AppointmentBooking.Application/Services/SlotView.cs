@@ -1,8 +1,8 @@
 ﻿using AppointmentBooking.Domain.IRepositories;
-using DoctorBooking.DAL.Models;
+using DoctorBooking.Shared.Models;
 
 namespace AppointmentBooking.Application.Services;
-public class SlotView(IPatientRepo patientRepo)
+public class SlotViewService(IPatientRepo patientRepo)
 {
     private readonly IPatientRepo _patientRepo = patientRepo;
 

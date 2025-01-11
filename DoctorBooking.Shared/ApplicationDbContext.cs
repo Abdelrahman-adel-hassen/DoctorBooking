@@ -1,8 +1,7 @@
-﻿using DoctorBooking.DAL.Models;
-using DoctorBooking.Shared.Models;
+﻿using DoctorBooking.Shared.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace DoctorBooking.DAL;
+namespace DoctorBooking.Shared;
 public class ApplicationDbContext : DbContext
 {
     public DbSet<Doctor> Doctors { get; set; }

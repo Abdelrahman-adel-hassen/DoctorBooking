@@ -1,11 +1,11 @@
-﻿using DoctorBooking.DAL.Models;
+﻿using DoctorBooking.Shared.Models;
 using DoctorAvailability.DAL.Repositories;
 
 namespace DoctorAvailability.BLL.Services
 {
-    public class DoctorService(DoctorRepo doctorRepo)
+    public class DoctorService(IDoctorRepo doctorRepo)
     {
-        private readonly DoctorRepo _doctorRepo = doctorRepo;
+        private readonly IDoctorRepo _doctorRepo = doctorRepo;
 
         public IEnumerable<Slot> GetDoctorSlots(Guid id)
         {
@@ -14,11 +14,8 @@ namespace DoctorAvailability.BLL.Services
                 throw new ArgumentException("Doctor ID cannot be empty");
             }
             var doctorSlots = _doctorRepo.GetDoctorSlots(id);
-            if (doctorSlots == null)
-            {
-                throw new ArgumentException("DoctorSlots are Empty");
-            }
-            return doctorSlots;
+
+            return doctorSlots ?? default!;
         }
         public bool AddDoctorSlot(IEnumerable<Slot> slots)
         {
