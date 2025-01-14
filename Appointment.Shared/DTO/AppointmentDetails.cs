@@ -1,4 +1,4 @@
-﻿namespace Appointment.Shared.DTO
+﻿namespace AppointmentBooking.Shared.DTO
 {
     public class AppointmentDetails
     {

@@ -1,14 +1,14 @@
-﻿using Appointment.Shared.DTO;
+﻿using DoctorBooking.Shared.Modules;
 using Notification.Shared;
 
 namespace Notification.API
 {
     public sealed class NotificationsModuleApi : INotificationsModuleApi
     {
-        public Task SendAsync(AppointmentDetails appointmentDetails)
+        public Task SendAsync(AppointmentNotification appointment)
         {
             // TODO: Implement an Notification sender
-            Console.WriteLine($"Sending notification to {appointmentDetails.PatientName} for appointment with {appointmentDetails.DoctorName} at {appointmentDetails.ReservedAt}");
+            Console.WriteLine($"Sending notification to {appointment.PatientName} for appointment with {appointment.DoctorName} at {appointment.ReservedAt}");
             return Task.CompletedTask;
         }
     }

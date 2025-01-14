@@ -1,6 +1,6 @@
-﻿namespace DoctorAvailability.DAL.Repositories
+﻿namespace DoctorAvailability.BLL.Services
 {
-    public interface IDoctorRepo
+    public interface IDoctorService
     {
         ICollection<Slot> GetDoctorSlots(Guid id);
         bool AddDoctorSlot(IEnumerable<Slot> slots);

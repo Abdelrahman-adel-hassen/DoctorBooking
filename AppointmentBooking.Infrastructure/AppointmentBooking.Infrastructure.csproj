@@ -7,8 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Appointment.Shared\AppointmentBooking.Shared.csproj" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AppointmentBooking.Domain\AppointmentBooking.Domain.csproj" />
+    <ProjectReference Include="..\DoctorAvailability.Shared\DoctorAvailability.Shared.csproj" />
     <ProjectReference Include="..\DoctorBooking.Shared\DoctorBooking.Shared.csproj" />
   </ItemGroup>
 

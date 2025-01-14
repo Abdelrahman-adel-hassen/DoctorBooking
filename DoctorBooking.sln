@@ -35,7 +35,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notification.API", "DoctorB
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notification.Shared", "Notification.Shared\Notification.Shared.csproj", "{AD808887-3040-4EFE-84DC-39EF833EEF5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentBooking.Shared", "Appointment.Shared\AppointmentBooking.Shared.csproj", "{1792099C-95F5-45D8-9E12-3E73EF21849F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorAvailability.Shared", "DoctorAvailability.Shared\DoctorAvailability.Shared.csproj", "{3B175FE3-3038-484D-86AD-884F043E8A92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,10 +87,10 @@ Global
 		{AD808887-3040-4EFE-84DC-39EF833EEF5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD808887-3040-4EFE-84DC-39EF833EEF5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD808887-3040-4EFE-84DC-39EF833EEF5B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1792099C-95F5-45D8-9E12-3E73EF21849F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1792099C-95F5-45D8-9E12-3E73EF21849F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1792099C-95F5-45D8-9E12-3E73EF21849F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1792099C-95F5-45D8-9E12-3E73EF21849F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B175FE3-3038-484D-86AD-884F043E8A92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B175FE3-3038-484D-86AD-884F043E8A92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B175FE3-3038-484D-86AD-884F043E8A92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B175FE3-3038-484D-86AD-884F043E8A92}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -109,6 +109,6 @@ Global
 		{51329C9C-AA55-4E66-8D5A-AF64DAB03A0B} = {5137AD13-EA3A-4449-A6D4-01A2DC340499}
 		{8578CC72-B859-4159-A007-901DD1380789} = {51329C9C-AA55-4E66-8D5A-AF64DAB03A0B}
 		{AD808887-3040-4EFE-84DC-39EF833EEF5B} = {51329C9C-AA55-4E66-8D5A-AF64DAB03A0B}
-		{1792099C-95F5-45D8-9E12-3E73EF21849F} = {7A8E2E60-9838-4FB5-AE78-950BAC4EF21C}
+		{3B175FE3-3038-484D-86AD-884F043E8A92} = {E81EADC0-7736-474D-B3E4-417A9C32B899}
 	EndGlobalSection
 EndGlobal

@@ -1,0 +1,9 @@
+﻿global using DoctorAvailability.BLL;
+global using DoctorAvailability.BLL.Services;
+global using DoctorAvailability.DAL;
+global using DoctorAvailability.DAL.Models;
+global using Microsoft.AspNetCore.Http;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.DependencyInjection;
+global using Swashbuckle.AspNetCore.Annotations;

@@ -1,21 +1,16 @@
-﻿using DoctorBooking.Shared;
-using DoctorBooking.Shared.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace DoctorAvailability.DAL.Repositories
+﻿namespace DoctorAvailability.DAL.Repositories
 {
-    public class DoctorRepo(ApplicationDbContext context) : IDoctorRepo
+    public class DoctorRepo(DoctorAvailabilityDbContext context) : IDoctorRepo
     {
-        private readonly ApplicationDbContext _context = context;
 
-        public IEnumerable<Slot> GetDoctorSlots(Guid id)
+        public ICollection<Slot> GetDoctorSlots(Guid id)
         {
-            var DoctorExists = _context.Doctors.Any(x => x.Id == id);
+            var Doctors = context.Doctors.Any(x => x.Id == id);
 
-            if (!DoctorExists)
+            if (!Doctors)
                 return null!;
 
-            var doctorSlots = _context.Slots
+            var doctorSlots = context.Slots
                     .Where(x => x.DoctorId == id)
                     .AsNoTracking()
                     .ToList();
@@ -25,8 +20,9 @@ namespace DoctorAvailability.DAL.Repositories
 
         public bool AddDoctorSlot(IEnumerable<Slot> slots)
         {
-            _context.Slots.AddRange(slots);
-            _context.SaveChanges();
+            // add validation if doctor has same slot interval
+            context.Slots.AddRange(slots);
+            context.SaveChanges();
 
             return true;
         }

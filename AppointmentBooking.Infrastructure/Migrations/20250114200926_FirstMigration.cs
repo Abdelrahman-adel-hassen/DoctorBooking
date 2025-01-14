@@ -3,16 +3,20 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace DoctorBooking.Shared.Migrations
+namespace AppointmentBooking.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class AddingPatientAndAppointmentTables : Migration
+    public partial class FirstMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "AppointmentBooking");
+
             migrationBuilder.CreateTable(
                 name: "Patients",
+                schema: "AppointmentBooking",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -25,6 +29,7 @@ namespace DoctorBooking.Shared.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Appointments",
+                schema: "AppointmentBooking",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
@@ -39,36 +44,29 @@ namespace DoctorBooking.Shared.Migrations
                     table.ForeignKey(
                         name: "FK_Appointments_Patients_PatientId",
                         column: x => x.PatientId,
+                        principalSchema: "AppointmentBooking",
                         principalTable: "Patients",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_Appointments_Slots_SlotId",
-                        column: x => x.SlotId,
-                        principalTable: "Slots",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Appointments_PatientId",
+                schema: "AppointmentBooking",
                 table: "Appointments",
                 column: "PatientId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Appointments_SlotId",
-                table: "Appointments",
-                column: "SlotId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Appointments");
+                name: "Appointments",
+                schema: "AppointmentBooking");
 
             migrationBuilder.DropTable(
-                name: "Patients");
+                name: "Patients",
+                schema: "AppointmentBooking");
         }
     }
 }

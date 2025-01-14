@@ -1,47 +1,42 @@
-﻿using Appointment.Shared.DTO;
-using AppointmentBooking.Domain.IRepositories;
-using DoctorBooking.Shared;
-using DoctorBooking.Shared.Models;
-using Microsoft.EntityFrameworkCore;
-
-namespace AppointmentBooking.Infrastructure.Repositories
+﻿namespace AppointmentBooking.Infrastructure.Repositories
 {
-    public class PatientRepo(ApplicationDbContext context) : IPatientRepo
+    public class PatientRepo(AppointmentBookingDbContext context, IDoctorShared doctorRepo, IMapper mapper) : IPatientRepo
     {
-        private readonly ApplicationDbContext _context = context;
 
-        public IEnumerable<Slot> GetAvailableSlots()
+        public ICollection<Slot> GetAvailableSlots(Guid doctorId)
         {
-            var Slots = _context.Slots
-                    .Where(x => !x.IsReserved)
-                    .AsNoTracking()
-                    .ToList();
+            var Slots = doctorRepo.GetAvailableDoctorSlots(doctorId).ToList();
 
-            return Slots;
+            return mapper.Map<List<Slot>>(Slots);
         }
 
-        public AppointmentDetails BookAppointment(Guid patientId, Guid doctorId, Guid slotId)
+        public AppointmentNotification BookAppointment(Guid patientId, Guid doctorId, Guid slotId)
         {
-            var slot = _context.Slots.FirstOrDefault(x => x.Id == slotId && !x.IsReserved);
-            if (slot is null)
+            //Todo  Return Result 
+            var slot = doctorRepo.GetSlot(slotId);
+            if (slot is null || slot.IsReserved)
             {
+                //throw exception
                 return null;
             }
-            var patient = _context.Patients.FirstOrDefault(x => x.Id == patientId);
+            var patient = context.Patients.FirstOrDefault(x => x.Id == patientId);
             if (patient is null)
             {
+                //throw exception
                 return null;
             }
-            var doctor = _context.Doctors.FirstOrDefault(x => x.Id == doctorId);
+            var doctor = doctorRepo.GetDoctor(doctorId);
             if (doctor is null)
             {
+                //throw exception
                 return null;
             }
-            var appointment = new DoctorBooking.Shared.Models.Appointment() { PatientId = patientId, PatientName = patient.Name, SlotId = slotId };
-            _context.Appointments.AddRange(appointment);
-            _context.SaveChanges();
-
-            return new AppointmentDetails() { DoctorName = doctor.Name, PatientName = patient.Name, ReservedAt = appointment.ReservedAt };
+            var appointment = new Appointment() { PatientId = patientId, PatientName = patient.Name, SlotId = slotId };
+            context.Appointments.AddRange(appointment);
+            var isBooked = context.SaveChanges() > 0;
+            if (!isBooked)
+                return null;
+            return new AppointmentNotification() { DoctorName = doctor.Name, PatientName = patient.Name, ReservedAt = appointment.ReservedAt };
         }
 
     }

@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Appointment.Shared\AppointmentBooking.Shared.csproj" />
     <ProjectReference Include="..\DoctorBooking.Shared\DoctorBooking.Shared.csproj" />
     <ProjectReference Include="..\Notification.Shared\Notification.Shared.csproj" />
   </ItemGroup>

@@ -3,20 +3,26 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace DoctorBooking.Shared.Migrations
+namespace DoctorAvailability.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class AddingDoctorsAndSlotsTables : Migration
+    public partial class FirstMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.EnsureSchema(
+                name: "DoctorAvailability");
+
             migrationBuilder.CreateTable(
                 name: "Doctors",
+                schema: "DoctorAvailability",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    JobTitle = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -25,11 +31,13 @@ namespace DoctorBooking.Shared.Migrations
 
             migrationBuilder.CreateTable(
                 name: "Slots",
+                schema: "DoctorAvailability",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DoctorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    DoctorName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IsReserved = table.Column<bool>(type: "bit", nullable: false),
                     Cost = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
                 },
@@ -39,6 +47,7 @@ namespace DoctorBooking.Shared.Migrations
                     table.ForeignKey(
                         name: "FK_Slots_Doctors_DoctorId",
                         column: x => x.DoctorId,
+                        principalSchema: "DoctorAvailability",
                         principalTable: "Doctors",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -46,6 +55,7 @@ namespace DoctorBooking.Shared.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Slots_DoctorId",
+                schema: "DoctorAvailability",
                 table: "Slots",
                 column: "DoctorId");
         }
@@ -54,10 +64,12 @@ namespace DoctorBooking.Shared.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Slots");
+                name: "Slots",
+                schema: "DoctorAvailability");
 
             migrationBuilder.DropTable(
-                name: "Doctors");
+                name: "Doctors",
+                schema: "DoctorAvailability");
         }
     }
 }
