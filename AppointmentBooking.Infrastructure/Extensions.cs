@@ -1,4 +1,6 @@
-﻿namespace AppointmentBooking.Infrastructure
+﻿using AppointmentBooking.Shared.Interfaces;
+
+namespace AppointmentBooking.Infrastructure
 {
     public static class Extensions
     {
@@ -7,6 +9,7 @@
             var connectionString = configuration.GetConnectionString("DefaultConnection") ??
             throw new InvalidOperationException("Connection String 'DefaultConnection' not found.");
             services.AddScoped<IPatientRepo, PatientRepo>();
+            services.AddScoped<IAppointmentShared, AppointmentRepo>();
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddDbContext<AppointmentBookingDbContext>(options => options.UseSqlServer(connectionString));
             return services;

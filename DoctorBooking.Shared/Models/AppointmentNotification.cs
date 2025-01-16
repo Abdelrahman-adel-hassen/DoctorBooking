@@ -1,4 +1,4 @@
-﻿namespace DoctorBooking.Shared.Modules
+﻿namespace DoctorBooking.Shared.Models
 {
     public class AppointmentNotification
     {

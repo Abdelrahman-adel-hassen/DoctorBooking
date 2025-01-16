@@ -17,7 +17,6 @@
         [SwaggerOperation(Summary = "Book An Appointment", Description = "Book an appointment with specific doctor")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-
         public IActionResult BookAppointment(Guid patientId, Guid doctorId, Guid slotId)
         {
             var result = appointmentBookService.BookAppointment(patientId, doctorId, slotId);

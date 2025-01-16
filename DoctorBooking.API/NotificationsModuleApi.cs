@@ -1,4 +1,4 @@
-﻿using DoctorBooking.Shared.Modules;
+﻿using DoctorBooking.Shared.Models;
 using Notification.Shared;
 
 namespace Notification.API

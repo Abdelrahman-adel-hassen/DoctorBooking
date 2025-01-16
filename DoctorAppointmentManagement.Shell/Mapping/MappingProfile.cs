@@ -1,12 +1,14 @@
-﻿
+﻿using DoctorAppointmentManagement.Shell.Dtos;
+using AutoMapper;
+using DoctorBooking.Shared.Models;
+
 namespace AppointmentBooking.Infrastructure.Mappers
 {
     public class MappingProfile : Profile
     {
         public MappingProfile()
         {
-            CreateMap<DoctorResonse,Doctor>();
-            CreateMap<SlotResponse, Slot>();
+            CreateMap<Appointment, AppointmentResponce>();
         }
     }
 }
