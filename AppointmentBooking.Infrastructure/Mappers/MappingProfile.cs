@@ -5,7 +5,6 @@ namespace AppointmentBooking.Infrastructure.Mappers
     {
         public MappingProfile()
         {
-            CreateMap<DoctorResonse,Doctor>();
             CreateMap<SlotResponse, Slot>();
         }
     }
