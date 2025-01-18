@@ -7,6 +7,7 @@ public class AppointmentBookService(IPatientRepo patientRepo, IDoctorShared doct
 
         if (appointmentDetails is not null)
         {
+            //TODO use event instead of direct code is better
             notification.SendAsync(appointmentDetails);
             doctorRepo.ReserveSlot(slotId);
         }
