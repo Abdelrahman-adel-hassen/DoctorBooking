@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 namespace DoctorAppointmentManagement.Shell.Controllers;
 [Route("api/[controller]")]
 [ApiController]
-public class AppointmentController(AppointmentServicePort appointmentService) : ControllerBase
+public class AppointmentController(IAppointmentServicePort appointmentService) : ControllerBase
 {
-    private readonly AppointmentServicePort _appointmentService = appointmentService;
+    private readonly IAppointmentServicePort _appointmentService = appointmentService;
 
     [HttpGet("")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -18,6 +18,7 @@ public class AppointmentController(AppointmentServicePort appointmentService) : 
     }
     [HttpPut("cancel")]
     [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public IActionResult CancelAppointment([FromRoute] Guid appointmentId)
     {
         var result= _appointmentService.CancelAppointment(appointmentId);
@@ -28,6 +29,7 @@ public class AppointmentController(AppointmentServicePort appointmentService) : 
 
     [HttpPut("complete")]
     [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public IActionResult CompleteAppointment([FromRoute] Guid appointmentId)
     {
         var result = _appointmentService.CompleteAppointment(appointmentId);

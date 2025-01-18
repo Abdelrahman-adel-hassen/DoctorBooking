@@ -1,4 +1,5 @@
-﻿using AppointmentBooking.Shared.Interfaces;
+﻿using AppointmentBooking.Infrastructure.Database;
+using AppointmentBooking.Shared.Interfaces;
 
 namespace AppointmentBooking.Infrastructure.Repositories;
 public class AppointmentRepo(AppointmentBookingDbContext context) : IAppointmentShared

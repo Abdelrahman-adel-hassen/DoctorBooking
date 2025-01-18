@@ -1,4 +1,4 @@
-﻿namespace AppointmentBooking.Infrastructure
+﻿namespace AppointmentBooking.Infrastructure.Database
 {
     public class AppointmentBookingDbContext : DbContext
     {

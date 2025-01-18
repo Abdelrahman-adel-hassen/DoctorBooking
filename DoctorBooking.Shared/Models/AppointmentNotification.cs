@@ -1,6 +1,6 @@
 ﻿namespace DoctorBooking.Shared.Models
 {
-    public class AppointmentNotification
+    public class AppointmentDetails
     {
         public DateTime ReservedAt { get; set; }
         public string DoctorName { get; set; } = string.Empty;

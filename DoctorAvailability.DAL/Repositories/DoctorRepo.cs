@@ -1,4 +1,6 @@
-﻿namespace DoctorAvailability.DAL.Repositories
+﻿using DoctorAvailability.DAL.Database;
+
+namespace DoctorAvailability.DAL.Repositories
 {
     public class DoctorRepo(DoctorAvailabilityDbContext context) : IDoctorRepo
     {

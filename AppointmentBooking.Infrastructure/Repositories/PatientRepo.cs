@@ -1,4 +1,6 @@
-﻿namespace AppointmentBooking.Infrastructure.Repositories
+﻿using AppointmentBooking.Infrastructure.Database;
+
+namespace AppointmentBooking.Infrastructure.Repositories
 {
     public class PatientRepo(AppointmentBookingDbContext context, IDoctorShared doctorRepo, IMapper mapper) : IPatientRepo
     {
@@ -10,7 +12,7 @@
             return mapper.Map<List<Slot>>(Slots);
         }
 
-        public AppointmentNotification BookAppointment(Guid patientId, Guid doctorId, Guid slotId)
+        public AppointmentDetails BookAppointment(Guid patientId, Guid doctorId, Guid slotId)
         {
             //Todo  Return Result 
             var slot = doctorRepo.GetSlot(slotId);
@@ -36,7 +38,7 @@
             var isBooked = context.SaveChanges() > 0;
             if (!isBooked)
                 return null;
-            return new AppointmentNotification() { DoctorName = doctor.Name, PatientName = patient.Name, ReservedAt = appointment.ReservedAt };
+            return new AppointmentDetails() { DoctorName = doctor.Name, PatientName = patient.Name, ReservedAt = appointment.ReservedAt };
         }
 
     }

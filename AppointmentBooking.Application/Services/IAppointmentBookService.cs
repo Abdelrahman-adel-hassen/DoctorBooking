@@ -2,6 +2,6 @@
 {
     public interface IAppointmentBookService
     {
-        AppointmentNotification BookAppointment(Guid patientId, Guid doctorId, Guid slotId);
+        AppointmentDetails BookAppointment(Guid patientId, Guid doctorId, Guid slotId);
     }
 }

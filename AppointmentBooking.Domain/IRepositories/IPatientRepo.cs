@@ -2,5 +2,5 @@
 public interface IPatientRepo
 {
     ICollection<Slot> GetAvailableSlots(Guid doctorId);
-    AppointmentNotification BookAppointment(Guid patientId, Guid doctorId, Guid slotId);
+    AppointmentDetails BookAppointment(Guid patientId, Guid doctorId, Guid slotId);
 }

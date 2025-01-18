@@ -1,4 +1,6 @@
-﻿namespace DoctorAvailability.DAL.Repositories
+﻿using DoctorAvailability.DAL.Database;
+
+namespace DoctorAvailability.DAL.Repositories
 {
     internal class DoctorShared(DoctorAvailabilityDbContext context, IMapper mapper) : IDoctorShared
     {

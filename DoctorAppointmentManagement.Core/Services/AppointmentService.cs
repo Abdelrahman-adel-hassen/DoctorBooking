@@ -4,7 +4,7 @@ using DoctorBooking.Shared.Models;
 
 
 namespace DoctorAppointmentManagement.Core.Services;
-public class AppointmentService(IAppointmentRepo appointmentRepo) : AppointmentServicePort
+public class AppointmentService(IAppointmentRepo appointmentRepo) : IAppointmentServicePort
 {
     private readonly IAppointmentRepo _appointmentRepo = appointmentRepo;
 

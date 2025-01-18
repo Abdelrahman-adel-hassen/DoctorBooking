@@ -1,4 +1,4 @@
-﻿namespace DoctorAvailability.DAL
+﻿namespace DoctorAvailability.DAL.Database
 {
     public class DoctorAvailabilityDbContext : DbContext
     {

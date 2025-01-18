@@ -1,8 +1,7 @@
 ﻿using DoctorBooking.Shared.Models;
 
-
 namespace DoctorAppointmentManagement.Core.InputPorts;
-public interface AppointmentServicePort
+public interface IAppointmentServicePort
 {
     ICollection<Appointment> GetUpcomingAppointments();
     bool CancelAppointment(Guid appointmentId);

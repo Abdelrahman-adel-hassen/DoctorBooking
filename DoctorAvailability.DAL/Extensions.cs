@@ -1,4 +1,6 @@
-﻿namespace DoctorAvailability.DAL
+﻿using DoctorAvailability.DAL.Database;
+
+namespace DoctorAvailability.DAL
 {
     public static class Extensions
     {
